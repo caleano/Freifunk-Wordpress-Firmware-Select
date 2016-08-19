@@ -1,0 +1,68 @@
+<div class="firmware-select">
+    <div class="col router-image">
+        &nbsp;
+    </div>
+
+    <div class="col firmware-selector">
+        <form>
+            <div class="row manufacturer">
+                <label for="manufacturer">Hersteller</label>
+
+                <select id="manufacturer" name="manufacturer">
+                    <option value="" selected>Bitte auswählen</option>
+
+                    <option value="Foo">Foo</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Baz">Baz</option>
+                </select>
+            </div>
+
+            <div class="row model">
+                <label for="model">Modell</label>
+
+                <select id="model" name="model">
+                    <option value="" selected>Bitte auswählen</option>
+
+                    <option value="Foo">Foo</option>
+                    <option value="Bar">Bar</option>
+                    <option value="Baz">Baz</option>
+                </select>
+            </div>
+
+            <div class="row revision">
+                <label for="revision">Version</label>
+
+                <select id="revision" name="revision">
+                    <option value="" selected>Bitte auswählen</option>
+
+                    <option value="1.0">1.0</option>
+                    <option value="1.6">1.6</option>
+                    <option value="3.0">3.0</option>
+                </select>
+            </div>
+
+            <div class="row type">
+                <label for="type">Art</label>
+
+                <select id="type" name="type">
+                    <option value="" selected>Bitte auswählen</option>
+
+                    <option value="factory">Factory</option>
+                    <option value="sysupgrade">Sysupgrade</option>
+                </select>
+            </div>
+
+            <div class="row branch">
+                <label for="branch">Branch</label>
+
+                <select id="branch" name="branch">
+                    <option value="stable" selected>Stable</option>
+                    <option value="dev">Dev</option>
+                    <option value="test">Test</option>
+                </select>
+            </div>
+
+            <button type="submit">Download</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+/**
+ * Firmware select styles
+ */
+
+.firmware-select {
+    display: table;
+    border-spacing: 0.5em;
+    width: 100%;
+}
+
+.firmware-select .row {
+    display: table-row;
+}
+
+.firmware-select .row label {
+    display: block;
+}
+
+.firmware-select .col {
+    display: table-cell;
+}
+
+.firmware-select .col.router-image {
+    width: 30%;
+}
+
+.firmware-select .col.firmware-selector {
+    width: 70%;
+}
