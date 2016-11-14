@@ -131,7 +131,7 @@ class WordpressRouting
         foreach (self::$routes[$type] as $route) {
             if (
                 $wp->request == $route['url']
-                || $wp->query_vars['page_id'] == $route['url']
+                || (isset($wp->query_vars['page_id']) && $wp->query_vars['page_id'] == $route['url'])
             ) {
                 $emptyPage = $this->getEmptyPage($wp->request);
                 $page = $route['callback']($emptyPage);
@@ -140,6 +140,14 @@ class WordpressRouting
                 }
 
                 $this->setSiteFound($wp_query);
+                if (is_array($page)) {
+                    header("HTTP/1.1 200 OK");
+                    header('Content-Type: application/json');
+
+                    echo json_encode($page);
+                    exit;
+                }
+
                 return [$page];
             }
         }
