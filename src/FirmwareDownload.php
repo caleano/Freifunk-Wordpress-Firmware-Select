@@ -49,6 +49,12 @@ class FirmwareDownload
         return $return;
     }
 
+    /**
+     * Returns the firmware files list
+     *
+     * @param string $url
+     * @return array
+     */
     protected function getFirmwareList($url)
     {
         $firmware = DirectoryListingParser::parse($url);
@@ -108,6 +114,10 @@ class FirmwareDownload
                         } elseif (isset($matches[3])) {
                             $image['revision'] = $matches[3];
                         }
+                    }
+
+                    if (empty($image['revision'])) {
+                        $image['revision'] = $image['name'];
                     }
                 }
             }

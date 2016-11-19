@@ -26,7 +26,16 @@ class Template
      */
     public function registerScripts()
     {
-        wp_enqueue_script('meetup-registration-js', $this->getPluginAssetPath('assets/js/plugin.js'), ['jquery']);
+        wp_enqueue_script(
+            'meetup-registration-js-request',
+            $this->getPluginAssetPath('assets/js/request.js'),
+            ['jquery']
+        );
+        wp_enqueue_script(
+            'meetup-registration-js',
+            $this->getPluginAssetPath('assets/js/plugin.js'),
+            ['jquery', 'meetup-registration-js-request']
+        );
     }
 
     /**

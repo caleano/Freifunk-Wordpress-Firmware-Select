@@ -99,7 +99,14 @@ class WordpressRouting
         /**  @var WP_Query $wp_query */
         global $wp_query;
 
-        if (count($posts) != 0 && $wp_query->query_vars['error'] != 404) {
+        if (
+            count($posts) != 0
+            && (
+                !is_array($wp_query->query_vars)
+                || !key_exists('error', $wp_query->query_vars)
+                || $wp_query->query_vars['error'] != 404
+            )
+        ) {
             return $posts;
         }
 
@@ -131,7 +138,11 @@ class WordpressRouting
         foreach (self::$routes[$type] as $route) {
             if (
                 $wp->request == $route['url']
-                || (isset($wp->query_vars['page_id']) && $wp->query_vars['page_id'] == $route['url'])
+                || (
+                    is_array($wp->query_vars)
+                    && key_exists('page_id', $wp->query_vars)
+                    && $wp->query_vars['page_id'] == $route['url']
+                )
             ) {
                 $emptyPage = $this->getEmptyPage($wp->request);
                 $page = $route['callback']($emptyPage);

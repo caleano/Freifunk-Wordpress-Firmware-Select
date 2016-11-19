@@ -27,3 +27,8 @@
 .firmware-select .col.firmware-selector {
     width: 70%;
 }
+
+.firmware-select p.download {
+    margin-top: 15px;
+    margin-left: 7px;
+}
