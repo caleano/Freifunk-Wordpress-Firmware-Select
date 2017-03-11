@@ -81,7 +81,7 @@ class FirmwareDownload
         2: ? Version
         3: ? Version
         */
-        $versionRegex = '(.+)(?:-((?:rev-)?[\w]-?(?:\d+(?:\.\d+)?)?)?|(v\d))?$';
+        $versionRegex = '(.+)(?:-((?:rev-)?[\w]-?(?:\d+(?:\.\d+)?)?)?|(v\d+))?$';
 
         foreach ($firmware as $branch => &$types) {
             foreach ($types as $type => &$images) {
